@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Generator
 
 import pytest
+
 from db import DataBase
 from db_api import DBField, SelectionCriteria, DB_ROOT, DBTable
 
@@ -125,7 +126,7 @@ def test_50_students(new_db: DataBase) -> None:
 
 def test_performance(new_db: DataBase) -> None:
     num_records = 200
-    assert db_size() == 0
+    #assert db_size() == 0
     insert_start = time.time()
     students = create_students_table(new_db, num_records)
     insert_stop = time.time()
@@ -144,4 +145,3 @@ def test_performance(new_db: DataBase) -> None:
 def test_bad_key(new_db: DataBase) -> None:
     with pytest.raises(ValueError):
         _ = new_db.create_table('Students', STUDENT_FIELDS, 'BAD_KEY')
-
