@@ -1,1 +1,0 @@
-# dna-analyzer-project-shoshirizel
